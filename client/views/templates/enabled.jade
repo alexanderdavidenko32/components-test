@@ -1,0 +1,36 @@
+md-content
+    .center-form
+        h1 enabled
+        md-button(ui-sref="list") list
+        form(name="listForm")
+            md-list
+                md-list-item(ng-repeat="component in components | filter:{checked: true}  track by $index")
+                    md-input-container(ng-if="component.checked")
+                        input(ng-if="component.type == 'text' || component.type == 'password' || component.type == 'number'" name="{{ component.type }}" ng-model="component.value" type="{{ component.type }}" step="1" min="{{ component.validators.minValue }}" max="{{ component.validators.maxValue }}" md-minlength="component.validators.minLength" md-maxlength="component.validators.maxLength" required="component.validators.required" aria-label="input")
+                        div(ng-if="component.type == 'text' || component.type == 'password' || component.type == 'number'" ng-messages="listForm[component.type].$error")
+                            div(ng-message="required") This is required.
+                            div(ng-message="md-maxlength") The value has to be less than {{ component.validators.maxLength }} characters long.
+                            div(ng-message="md-minlength") The value has to be more than {{ component.validators.minLength }} characters long.
+                            div(ng-message="max") The value has to be less than {{ component.validators.maxValue }}.
+                            div(ng-message="min") The value has to be more than {{ component.validators.minValue }}.
+
+                        md-checkbox(ng-if="component.type == 'checkbox'" name="{{ component.type }}" ng-model="component.value"  required="component.validators.required" aria-label="checkbox")
+                        div(ng-if="component.type == 'checkbox'" ng-messages="listForm[component.type].$error")
+                            div(ng-message="required") This is required.
+                            div(ng-message="md-maxlength") The login has to be less than 30 characters long.
+                            div(ng-message="md-minlength") The login has to be more than {{ component.validators.minlength }} characters long.
+
+                        input(ng-if="component.type == 'datepicker'" ng-model="component.value" name="birthday" type="hidden" aria-label="input hidden")
+
+                        textarea(ng-if="component.type == 'textarea'" ng-model="component.value" md-minlength="{{ component.validators.minLength }}" md-maxlength="{{ component.validators.maxLength }}" required="component.validators.required" aria-label="textarea")
+                        div(ng-if="component.type == 'textarea'" ng-messages="listForm[component.type].$error")
+                            div(ng-message="required") This is required.
+                            div(ng-message="md-maxlength") The login has to be less than 30 characters long.
+                            div(ng-message="md-minlength") The login has to be more than {{ component.validators.minlength }} characters long.
+
+                    md-input-container(ng-if="component.type == 'datepicker' && component.checked")
+                        md-datepicker(ng-model="component.value" aria-label="birthday")
+                        div(ng-messages="listForm[component.type].$error")
+                            div(ng-message="required") This is required.
+                            div(ng-message="md-maxlength") The login has to be less than 30 characters long.
+                            div(ng-message="md-minlength") The login has to be more than {{ component.validators.minlength }} characters long.

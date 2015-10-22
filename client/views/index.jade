@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title(title="Test")
+    meta(charset="utf-8")
+    script(src="/vendors/js/angular.js")
+    script(src="/vendors/js/angular-ui-router.js")
+    script(src="/vendors/js/angular-cookies.js")
+    script(src="/vendors/js/angular-resource1.4.4.js")
+    script(src="/vendors/js/angular-animate.js")
+    script(src="/vendors/js/angular-aria.js")
+    script(src="/vendors/js/angular-messages.js")
+    script(src="/vendors/js/autofocus.js")
+    script(src="/vendors/js/angular-material.js")
+
+    script(src="/build/js/app.js")
+
+    link(rel="stylesheet" href="/build/css/styles.css")
+    link(rel="stylesheet" href="/vendors/css/angular-material.css")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+
+    base(href="/")
+  body(ng-app="app" layout='column"')
+    section(ui-view)

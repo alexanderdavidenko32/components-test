@@ -1,0 +1,26 @@
+h1 {
+  color: tomato; }
+
+section {
+  width: 100%; }
+
+.center-form {
+  width: 300px;
+  margin: 0 auto; }
+
+.next-button {
+  float: right; }
+
+.active {
+  color: red; }
+
+md-input-container {
+  width: 100%; }
+
+form md-datepicker {
+  position: relative;
+  left: -16px; }
+  form md-datepicker .md-datepicker-input-container {
+    margin-left: 0; }
+  form md-datepicker .md-datepicker-button.md-icon-button {
+    margin-right: 0; }

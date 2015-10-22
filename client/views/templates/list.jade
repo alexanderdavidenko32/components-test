@@ -1,0 +1,15 @@
+md-content
+    .center-form
+        h1 items
+        md-button(ui-sref="enabled") enabled
+
+        md-input-container
+            label search
+            input(ng-model="search" name="search" autofocus="true")
+
+        md-list
+            md-list-item(ng-repeat="component in components | filter:search track by $index")
+                md-checkbox(ng-model="component.checked")
+
+                .md-list-item-text(layout="column")
+                    p {{ component.type }}
